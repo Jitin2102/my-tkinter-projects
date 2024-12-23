@@ -1,0 +1,36 @@
+import tkinter as tk
+
+def donothing():
+    filewin=tk.Toplevel(root)
+    button=tk.Button(filewin,text="Do nothing button")
+    button.pack()
+root=tk.Tk() 
+menubar=tk.Menu(root)
+filemenu=tk.Menu(menubar,tearoff=0)
+filemenu.add_command(label="New",command=donothing)
+filemenu.add_command(label="Open",command=donothing)
+filemenu.add_command(label="Save",command=donothing)
+filemenu.add_command(label="Save as",command=donothing)
+filemenu.add_command(label="Close",command=donothing)
+filemenu.add_separator()
+filemenu.add_command(label="Exit",command=root.quit)
+menubar.add_cascade(label="File",menu=filemenu)
+editemenu=tk.Menu(menubar,tearoff=0)
+editemenu.add_command(label="Undo",command=donothing)
+editemenu.add_separator()
+editemenu.add_command(label="Cut",command=donothing)
+editemenu.add_command(label="Copy",command=donothing)
+editemenu.add_command(label="Paste",command=donothing)
+editemenu.add_command(label="Delete",command=donothing)
+editemenu.add_command(label="Select all",command=donothing)
+menubar.add_cascade(label="Edit",menu=filemenu) 
+helpmenu=tk.Menu(menubar,tearoff=0)
+helpmenu.add_command(label="Help Index",command=donothing)
+helpmenu.add_command(label="About",command=donothing)
+menubar.add_cascade(label="Help",menu=helpmenu)
+root.config(menu=menubar)
+#menubar.pack()
+root.mainloop()
+
+
+   

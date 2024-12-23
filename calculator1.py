@@ -1,0 +1,66 @@
+import tkinter as tk
+def update_display(value):
+    global s
+    s= display_var.get()+ str(value) 
+    display_var.set(s)
+
+def clear_display():
+    display_var.set("")
+def calculate():
+    expression=display_var.get()
+    try:
+        result=str(eval(expression))
+        display_var.set(result)
+    except ZeroDivisionError:
+        display_var.set("Error:Invlid expression")
+    except SyntaxError:
+        display_var.set("Error:Invlid expression")
+root=tk.Tk()
+root.title("My Calculator")
+display_var=tk.StringVar() 
+display_entry = tk.Entry(root, textvariable=display_var, font=("Arial",20), bd=10, insertwidth=1, justify="right")
+display_entry.grid(row=0, column=0, columnspan=4)
+button1 = tk.Button(root, text="7", width=6, height=2,font=("Arial",14),command=lambda :update_display(7))
+button1.grid(row=1, column=0, padx=5, pady=5)
+button2 = tk.Button(root, text="4", width=6, height=2,font=("Arial",14),command=lambda :update_display(4))
+button2.grid(row=2, column=0, padx=5, pady=5)
+button3 = tk.Button(root, text="1",width=6, height=2, font=("Arial",14),command=lambda :update_display(1))
+button3.grid(row=3, column=0, padx=5, pady=5)
+button4 = tk.Button(root, text="0",width=6, height=2, font=("Arial",14),command=lambda :update_display(0))
+button4.grid(row=4, column=0, padx=5, pady=5)               
+button5 = tk.Button(root, text="8", width=6, height=2,font=("Arial",14),command=lambda :update_display(8))
+button5.grid(row=1, column=1, padx=5, pady=5)
+button6 = tk.Button(root, text="5",width=6, height=2, font=("Arial",14),command=lambda :update_display(5))
+button6.grid(row=2, column=1, padx=5, pady=5)
+button7 = tk.Button(root, text="2",width=6, height=2, font=("Arial",14),command=lambda :update_display(2))
+button7.grid(row=3, column=1, padx=5, pady=5)
+button8 = tk.Button(root, text=".", width=6, height=2,font=("Arial",14),command=lambda :update_display("."))
+button8.grid(row=4, column=1, padx=5, pady=5)
+button9 = tk.Button(root, text="9",width=6, height=2, font=("Arial",14),command=lambda :update_display(9))
+button9.grid(row=1, column=2, padx=5, pady=5)
+button10 = tk.Button(root, text="6",width=6, height=2, font=("Arial",14), command=lambda :update_display(6))
+button10.grid(row=2, column=2, padx=5, pady=5)
+button11 = tk.Button(root, text="3", width=6, height=2,font=("Arial",14), command=lambda :update_display(3))
+button11.grid(row=3, column=2, padx=5, pady=5)
+button12 = tk.Button(root, text="%",width=6, height=2, font=("Arial",14), command=lambda :update_display("%"))
+button12.grid(row=4, column=2, padx=5, pady=5)
+button13 = tk.Button(root, text="/",width=6, height=2, font=("Arial",14), command=lambda :update_display("/"))
+button13.grid(row=1, column=3, padx=5, pady=5)
+button14 = tk.Button(root, text="-",width=6, height=2, font=("Arial",14), command=lambda :update_display("-"))
+button14.grid(row=2, column=3, padx=5, pady=5)
+button15 = tk.Button(root, text="*", width=6, height=2,font=("Arial",14), command=lambda :update_display("*"))                          
+button15.grid(row=3, column=3, padx=5, pady=5)
+button16 = tk.Button(root, text="+",width=6, height=2, font=("Arial",14), command=lambda :update_display("+"))
+button16.grid(row=4, column=3, padx=5, pady=5)
+
+clear_button = tk.Button(root, text="C", width=6, height=2, font=("Arial", 14), command=clear_display)
+clear_button.grid(row=5, column=0, padx=5, pady=5)
+
+calculate_button = tk.Button(root, text="=", width=6, height=2, font=("Arial", 14), command=calculate)
+calculate_button.grid(row=5, column=1, padx=5, pady=5)
+button17 = tk.Button(root, text="(", width=6, height=2, font=("Arial",14), command=lambda:update_display("("))
+button17.grid(row=5, column=2, padx=5, pady=5)
+button18 = tk.Button(root, text=")", width=6, height=2, font=("Arial",14), command=lambda:update_display(")"))
+button18.grid(row=5, column=3, padx=5, pady=5) 
+
+root.mainloop()  

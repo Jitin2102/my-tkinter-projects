@@ -1,0 +1,11 @@
+import tkinter as tk
+root=tk.Tk()
+root.geometry('800x400+200+100')
+root.title("Welcome Message!!!")
+bold_font=("Algerian",18,"bold")
+italic_font=("Aptos Display",18,"italic")
+button=tk.Button(root,text="Click Me To See Magic!",font=italic_font,command=lambda:welcome_label.config(text="Myself Jitin,Welcomes you in my \'Coding World\'!"))
+button.pack()
+welcome_label=tk.Label(root,text="",font=bold_font)
+welcome_label.pack()
+root.mainloop()
